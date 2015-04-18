@@ -21,7 +21,7 @@
         <button ng-show="product.canPurchase">Add To Cart</button>
     </div>
        -->
-
+  
     <ul class="list-group">
         <li class="list-group-item" ng-repeat="product in store.products">
             <h3>
@@ -56,7 +56,29 @@
                 </div>
                 <div class="panel" ng-show="panel.isSelected(3)">
                     <h4>Review</h4>
-                    <blockquote>Be First to Review </blockquote>
+                    <blockquote ng-repeat="review in product.reviews">
+                        <b>Starts:{{review.star}}</b>
+                        {{review.body}}
+                        <cite>by:{{review.author}}</cite>
+                    </blockquote>
+                    <form name="reviewForm">
+                        <blockquote>
+                            <b>Starts:{{review.star}}</b>
+                            {{review.body}}
+                            <cite>by:{{review.author}}</cite>
+                        </blockquote>
+                        <select ng-model="reviews.star">
+                            <option value="1">1*</option>
+                            <option value="2">2*</option>
+                            <option value="3">3*</option>
+                            <option value="4">4*</option>
+                            <option value="5">5*</option>
+                        </select>
+                        <textarea ng-model="reviews.body" ng-mouseup="panel.getText()"></textarea>
+                        <label>by:</label>
+                        <input type="email" ng-model="reviews.author" />
+                        <input type="submit" />
+                    </form>
                 </div>
 
             </section>
