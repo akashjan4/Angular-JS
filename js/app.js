@@ -1,9 +1,9 @@
 (function () {
     var app = angular.module('store', []);
-    app.controller('StoreContoller', function() {
+    app.controller('StoreContoller', function () {
         this.products = gems;
-       
-         
+
+
     });
     var gems = [
     {
@@ -18,21 +18,25 @@
                 thumb: 'img/ic_plus_circle_outline_black_18dp.png'
 
             }],
-        reviews:[
-            {star:5,
-                body:"this is awesome",
-                author:"@jadkskd"
+        reviews: [
+            {
+                star: 5,
+                body: "this is awesome",
+                author: "@jadkskd"
             },
-        {star:5,
-            body:"this is awesome",
-            author:"@ffgdkskd"
+        {
+            star: 5,
+            body: "this is awesome",
+            author: "@ffgdkskd"
         },
-        {star:5,
-            body:"this is awesome",
-            author:"@jadk454545skd"
-        },{star:5,
-            body:"this is awesome",
-            author:"@ju7u7989adkskd"
+        {
+            star: 5,
+            body: "this is awesome",
+            author: "@jadk454545skd"
+        }, {
+            star: 5,
+            body: "this is awesome",
+            author: "@ju7u7989adkskd"
         }]
     },
     {
@@ -47,23 +51,27 @@
                thumb: 'img/ic_pause_circle_outline_black_18dp.png'
 
            }],
-        reviews:[
-           {star:4,
-               body:"this is awesome",
-               author:"@jadkskd"
+        reviews: [
+           {
+               star: 4,
+               body: "this is awesome",
+               author: "@jadkskd"
            },
-       {star:3,
-           body:"this is awesome",
-           author:"@ffgdkskd"
+       {
+           star: 3,
+           body: "this is awesome",
+           author: "@ffgdkskd"
        },
-       {star:2,
-           body:"this is awesome",
-           author:"@jadk454545skd"
-       },{star:1,
-           body:"this is awesome",
-           author:"@ju7u7989adkskd"
+       {
+           star: 2,
+           body: "this is awesome",
+           author: "@jadk454545skd"
+       }, {
+           star: 1,
+           body: "this is awesome",
+           author: "@ju7u7989adkskd"
        }]
-        
+
     },
     {
         name: 'Pentadoden',
@@ -77,22 +85,25 @@
                thumb: 'img/ic_play_circle_outline_black_18dp.png'
 
            }],
-        reviews:[
+        reviews: [
            {
-               star:2,
-               body:"this is awesome",
-               author:"@jadkskd"
+               star: 2,
+               body: "this is awesome",
+               author: "@jadkskd"
            },
-       {star:2,
-           body:"this is awesome",
-           author:"@ffgdkskd"
+       {
+           star: 2,
+           body: "this is awesome",
+           author: "@ffgdkskd"
        },
-       {star:5,
-           body:"this is awesome",
-           author:"@jadk454545skd"
-       },{star:6,
-           body:"this is awesome",
-           author:"@ju7u7989adkskd"
+       {
+           star: 5,
+           body: "this is awesome",
+           author: "@jadk454545skd"
+       }, {
+           star: 6,
+           body: "this is awesome",
+           author: "@ju7u7989adkskd"
        }]
 
     }];
@@ -104,9 +115,10 @@
         this.isSelected = function (checkTab) {
             return this.tab === checkTab;
         };
-        this.getText = function () {
+        this.getText = function (e) {
             var selText = "";
-            if (window.getSelection) {  
+            console.log(e);
+            if (window.getSelection) {
                 if (document.activeElement &&
                         (document.activeElement.tagName.toLowerCase() == "textarea" ||
                          document.activeElement.tagName.toLowerCase() == "input")) {
@@ -126,10 +138,30 @@
                 }
             }
             if (selText !== "") {
-                alert(selText);
+                var el = document.getElementById(e);
+                var x = event.clientX;     // Get the horizontal coordinate
+                var y = event.clientY;     // Get the vertical coordinate
+                var coor = "X coords: " + x + ", Y coords: " + y;
+                var doc = document.createElement('div');
+                doc.style.position = "absolute";
+                doc.style.height = "200px";
+                doc.style.width = "200px";
+                doc.style.zIndex = "9999";
+                doc.style.backgroundColor = "#455678";
+                doc.style.top = el.offsetTop + "px";
+                doc.style.left = el.offsetLeft+"px";
+                document.body.appendChild(doc);
+                console.log(coor);
+               // alert(coor);
             }
         };
     });
 
 }());
 
+
+/*$("#textSel").bind("mouesup", function (e) {
+
+    var top1 = $().css("top");
+    var left1 = $().css("left");
+})*/

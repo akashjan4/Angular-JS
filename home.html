@@ -74,7 +74,7 @@
                             <option value="4">4*</option>
                             <option value="5">5*</option>
                         </select>
-                        <textarea ng-model="reviews.body" ng-mouseup="panel.getText()"></textarea>
+                        <textarea ng-model="reviews.body" id="{{$index}}" ng-mouseup="panel.getText($index)"></textarea>
                         <label>by:</label>
                         <input type="email" ng-model="reviews.author" />
                         <input type="submit" />
