@@ -4,7 +4,7 @@ if (typeof jQuery !== "undefined" && typeof saveAs !== "undefined") {
             fileName = typeof fileName !== 'undefined' ? fileName : "jQuery-Word-Export";
             var static = {
                 mhtml: {
-                    top: "Mime-Version: 1.0\nContent-Base: " + location.href + "\nContent-Type: Multipart/related; boundary=\"NEXT.ITEM-BOUNDARY\";type=\"text/html\"\n\n--NEXT.ITEM-BOUNDARY\nContent-Type: text/html; charset=\"utf-8\"\nContent-Location: " + location.href + "\n\n<!DOCTYPE html>\n<html>\n_html_</html>",
+                    top: "<!DOCTYPE html>\n<html>\n_html_</html>",
                     head: "<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n<style>\n_styles_\n</style>\n</head>\n",
                     body: "<body>_body_</body>"
                 }
@@ -53,13 +53,13 @@ if (typeof jQuery !== "undefined" && typeof saveAs !== "undefined") {
             // Prepare bottom of mhtml file with image data
             var mhtmlBottom = "\n";
             for (var i = 0; i < images.length; i++) {
-                mhtmlBottom += "--NEXT.ITEM-BOUNDARY\n";
+                mhtmlBottom += "";
                 mhtmlBottom += "Content-Location: " + images[i].location + "\n";
                 mhtmlBottom += "Content-Type: " + images[i].type + "\n";
                 mhtmlBottom += "Content-Transfer-Encoding: " + images[i].encoding + "\n\n";
                 mhtmlBottom += images[i].data + "\n\n";
             }
-            mhtmlBottom += "--NEXT.ITEM-BOUNDARY--";
+            mhtmlBottom += "";
 
             //TODO: load css from included stylesheet
             var styles = "";
