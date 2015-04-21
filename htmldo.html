@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+   
+    
+
+</head>
+<body>
+    <div id="page-content">
+        <h1>This is the headin </h1>
+        <article>
+            dflkhsdfkjsdf]sdfsdf
+            sdfsdflkndsfkjsdfsd
+            fdfsdfkjsdnfskdnfsl/kdgnsflkgnsdlgknsdglknfglskdngslfgknsdglksndlksdngsldknsdlkngsd
+        </article>
+
+    </div>
+    <a class="word-export" href="javascript:void(0)"> Export as .doc </a>
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/FileSaver.js"></script>
+
+    <script src="js/jquery.wordexport.js"></script>
+    <script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $("a.word-export").click(function (event) {
+            $("#page-content").wordExport();
+        });
+       
+    });
+    </script>
+</body>
+</html>

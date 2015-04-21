@@ -2,9 +2,8 @@
     var app = angular.module('store', []);
     app.controller('StoreContoller', function () {
         this.products = gems;
+    
 
-
-    });
     var gems = [
     {
         name: 'Octadoden',
