@@ -13,6 +13,17 @@ var UploadController = function ($scope, fileReader) {
     $scope.$on("fileProgress", function (e, progress) {
         $scope.progress = progress.loaded / progress.total;
     });
+    $scope.up = function (elm) {
+        var file = event.target.files[0];
+        console.log(file);
+        if (!file) return;      
+
+        var xhr = new XMLHttpRequest(); 
+        xhr.open('POST', '/uploadSomeWhere', true);
+        xhr.onload = function(event){}
+
+        xhr.send(file);
+    };
 
 };
 
